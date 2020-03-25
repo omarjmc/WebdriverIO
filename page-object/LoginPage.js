@@ -31,6 +31,16 @@ class LoginPage extends BasePage  {
         return $('.alert-error')
     }
 
+    //get user icon
+    get userIcon(){
+        return $('.icon-user')
+    }
+
+    //get logout link
+    get logoutLink(){
+        return $('#logout_link')
+    }
+
     //open
     open(){
         super.open('http://zero.webappsecurity.com/login.html')
@@ -41,6 +51,14 @@ class LoginPage extends BasePage  {
         this.username.setValue(username)
         this.password.setValue(password)
         this.loginbutton.click()
+    }
+
+    logoutFromApplication(){
+        this.userIcon.waitForExist(5000)
+        this.userIcon.click()
+        this.logoutLink.waitForExist(5000)
+        this.logoutLink.click()
+        this.logoutLink.waitForExist(5000, true)
     }
 }
 

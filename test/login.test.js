@@ -16,10 +16,6 @@ describe('Should log into the app', () => {
     })
 
     it('should logout', () => {
-        $('.icon-user').waitForExist('3000')
-        $('.icon-user').click()
-        $('#logout_link').waitForExist()
-        $('#logout_link').click()
-        $('#logout_link').waitForExist(5000, true)
+        LoginPage.logoutFromApplication()
     })
 })
